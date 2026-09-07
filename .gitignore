@@ -1,0 +1,42 @@
+# Repo tài liệu nghiên cứu. Không lưu dữ liệu bệnh nhân hoặc tài liệu nguồn chưa được phép chia sẻ.
+# Đây chỉ là bộ lọc phòng nhầm; không thay thế kiểm tra nội dung trước khi commit.
+
+# Dữ liệu và tài liệu nội bộ
+/data/
+/raw/
+/private/
+/restricted/
+/uploads/
+/references/raw/
+*.dcm
+*.dicom
+*.DCM
+*.DICOM
+*.nii
+*.nii.gz
+*.mha
+*.mhd
+*.nrrd
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.pdf
+*.docx
+*.xlsx
+
+# Secrets và môi trường cục bộ
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
