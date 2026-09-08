@@ -1,6 +1,6 @@
 # Source of truth — Trạng thái dự án
 
-Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md). Bản survey mới nhất: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md).
+Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md). Bản survey ultrasound mới nhất: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md). Khảo sát chiến lược ngoài ultrasound: [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md).
 
 ## 1. Đã xác nhận
 
@@ -9,14 +9,14 @@ Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực ti�
 | Dự án | Một paper dataset siêu âm y tế riêng |
 | Nền tảng của người dùng | AI/Computer Vision |
 | Cộng tác | Đang hợp tác với một số bạn bên Đại học Y Hà Nội; chưa xác nhận đối tác thu nhận lâm sàng cụ thể |
-| Modality | Siêu âm |
+| Modality hiện tại | Siêu âm |
 | Mục tiêu | Tìm nhu cầu dữ liệu có ý nghĩa và khả thi; không chỉ tăng số ảnh |
-| Nhu cầu trước mắt | Đề xuất các lựa chọn cơ quan–task–dạng dữ liệu để đối chiếu với khả năng hợp tác phía Y |
+| Nhu cầu trước mắt | Đề xuất các lựa chọn cơ quan–task–dạng dữ liệu để đối chiếu với khả năng hợp tác phía Y; đồng thời người dùng đang **khảo sát chiến lược** xem longitudinal CT/MRI, retinal imaging hoặc procedural/surgical video có tiềm năng hơn cho VLA/world model/disease-state hay không. Đây chưa phải quyết định đổi modality. |
 | Tài liệu mẫu | CariXray và DATE để tham khảo cách viết; `Thuyet minh De tai co so_ver2.docx` là mẫu thuyết minh dùng để nộp bên Đại học Y Hà Nội theo xác nhận của người dùng |
 | Repo chính thức | `https://github.com/QuocKhanhLuong/ultrasound-dataset` |
 | Quy tắc cập nhật | Chủ động đẩy thay đổi có ý nghĩa về source of truth và knowledge base thành docs vào repo trong các phiên làm việc |
 
-**Không diễn giải hàng “cộng tác” thành một quan hệ hợp tác cấp trường hoặc cam kết cung cấp dữ liệu.**
+**Không diễn giải hàng “cộng tác” thành một quan hệ hợp tác cấp trường hoặc cam kết cung cấp dữ liệu. Không coi việc khảo sát modality khác là đã rút quyết định siêu âm.**
 
 ## 2. Chưa xác nhận / chưa chốt
 
@@ -34,6 +34,7 @@ Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực ti�
 | U10 | Phê duyệt, đồng ý/miễn đồng ý phù hợp và điều kiện chia sẻ | Chưa xác nhận |
 | U11 | Cỡ mẫu pilot và nghiên cứu chính thức, kinh phí, lịch thu | Chưa chốt; không lấy số frame làm cỡ mẫu bệnh nhân |
 | U12 | Nơi nộp và hạn nộp paper dataset này | Chưa chốt trong phạm vi dự án này |
+| U13 | Có đổi modality khỏi ultrasound để theo longitudinal CT/MRI/retina/procedural video hay không | **Chưa quyết định; mới là strategic survey** |
 
 Chưa có cơ sở để ghi “đã có dataset”, “đa trung tâm”, “public dataset được phép phát hành”, “đã chạy benchmark” hoặc một cỡ mẫu thu nhận chính thức.
 
@@ -41,9 +42,9 @@ Chưa có cơ sở để ghi “đã có dataset”, “đa trung tâm”, “pu
 
 Khảo sát có dẫn nguồn; phân biệt ảnh/video, cơ quan, loại nhãn, metadata, nguồn thu nhận và truy cập. Phân tích độ rộng theo các trục độc lập. Chuẩn bị một số cấu hình để gặp phía Y; giữ điều kiện khả thi và gap ứng viên rõ ràng. Đề xuất pilot kiểm tra quy trình trước khi thu lớn.
 
-Chưa thiết kế model mới, chưa viết code cho pipeline/huấn luyện. Không ép ghép với world model, VLA hoặc forensic. Không đặt mục tiêu chia một dataset thành nhiều paper. Không lấy nội dung khoa học, cỡ mẫu, ngân sách hoặc nhân sự của mẫu Word làm thông tin của nghiên cứu mới.
+Chưa thiết kế model mới, chưa viết code cho pipeline/huấn luyện. Không ép ghép dataset ultrasound với world model, VLA hoặc forensic. Tuy nhiên, theo yêu cầu mới của người dùng, được phép **so sánh chiến lược** ultrasound với modality khác dựa trên mức phù hợp với longitudinal disease-state, VLA và medical world models; phải phân biệt rõ khảo sát với quyết định. Không đặt mục tiêu chia một dataset thành nhiều paper. Không lấy nội dung khoa học, cỡ mẫu, ngân sách hoặc nhân sự của mẫu Word làm thông tin của nghiên cứu mới.
 
-## 4. Các hướng đang được đề xuất — chưa được người dùng/HMU chọn
+## 4. Các hướng ultrasound đang được đề xuất — chưa được người dùng/HMU chọn
 
 Menu ban đầu O1–O4 vẫn được lưu tại [DATA_AND_TASK_OPTIONS](research/DATA_AND_TASK_OPTIONS.md). Sau survey cập nhật 08/09/2026, trợ lý đề xuất shortlist mới dưới đây để **khảo sát tính khớp nguồn dữ liệu**, không phải quyết định dự án:
 
@@ -60,8 +61,20 @@ Các hướng basic thyroid classification/detection/segmentation, breast lesion
 
 Chi tiết bằng chứng/gap: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md) và [SOURCES](research/SOURCES.md).
 
-## 5. Bước tiếp theo
+## 5. Khảo sát chiến lược ngoài ultrasound — chưa phải quyết định đổi modality
+
+Tài liệu [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md) tách ba hướng đang hot:
+
+- **VLA/embodied:** tự nhiên nhất với robotic/endoscopic surgical video + action/kinematics và ultrasound scanning trajectories.
+- **Physical/procedural world model:** cần state + action + next-state của thủ thuật; surgical video/robotics và probe trajectories phù hợp hơn static imaging.
+- **Disease-state/clinical world model:** longitudinal oncology CT, multi-sequence MRI, PET/CT hoặc retinal imaging qua nhiều visit phù hợp hơn; giá trị tăng mạnh nếu có treatment/intervention semantics, lesion correspondence và outcomes.
+
+Các candidate ngoài ultrasound đáng kiểm tra với HMU gồm: X1 longitudinal oncology CT dưới treatment; X2 longitudinal multi-sequence brain MRI; X3 longitudinal fundus/OCT; X4 surgical/endoscopic video + action/kinematics. Chưa candidate nào được chọn.
+
+## 6. Bước tiếp theo
 
 Dùng [phiếu trao đổi HMU](planning/HMU_ALIGNMENT.md) và shortlist A–D để xác nhận: dạng dữ liệu thực tế (selected stills / multiple views / cine / full sweep), patient–exam linkage, calibration/metadata, clinical owner, reader time, reference standard và điều kiện trích xuất nghiên cứu.
 
-Sau khi có phản hồi, cập nhật U01–U12 bằng người xác nhận, ngày và bằng chứng được phép chia sẻ. Chỉ khi biết 1–2 nguồn khả thi mới thực hiện systematic novelty check sâu cho đúng anatomy/task và thiết kế [pilot](planning/PILOT_QUALITY_GOVERNANCE.md). Chưa đặt cỡ mẫu nghiên cứu chính thức trước khi primary evaluation target được chốt.
+Đồng thời hỏi thêm xem ngoài ultrasound phía HMU có nguồn **longitudinal CT/MRI/retinal imaging có patient-time-treatment linkage** hoặc **procedural/surgical video có action/kinematics** hay không. Chỉ khi có nguồn khả thi mới cân nhắc thay đổi U13 và tạo decision record mới.
+
+Sau khi có phản hồi, cập nhật U01–U13 bằng người xác nhận, ngày và bằng chứng được phép chia sẻ. Chỉ khi biết 1–2 nguồn khả thi mới thực hiện systematic novelty check sâu cho đúng anatomy/task và thiết kế [pilot](planning/PILOT_QUALITY_GOVERNANCE.md). Chưa đặt cỡ mẫu nghiên cứu chính thức trước khi primary evaluation target được chốt.
