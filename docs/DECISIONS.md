@@ -36,9 +36,19 @@ Repo: `QuocKhanhLuong/ultrasound-dataset`. Mỗi thay đổi có ý nghĩa về 
 
 **Hệ quả triển khai:** dùng README để điều hướng; SOURCE_OF_TRUTH cho trạng thái dự án; research cho bằng chứng/đề xuất; DECISIONS và CHANGELOG để truy vết. Không suy ra yêu cầu chạy nền hay tự động theo lịch.
 
+## D005 — Khảo sát song song một CT longitudinal oncology ontology
+
+**Trạng thái:** đã xác nhận yêu cầu nghiên cứu bởi người dùng ngày 2026-09-08.
+
+Người dùng muốn khảo sát thêm một hướng **CT ontology theo hồ sơ bệnh theo thời gian**, trong đó imaging states được nối với lesion-level labels/measurements, treatment/intervention giữa các state và clinical outcome/assessment. Người dùng yêu cầu tiếp tục survey để chọn scale và scope.
+
+**Không được diễn giải thành:** đã bỏ ultrasound; đã chọn HCC/NSCLC/HNSCC; đã chọn RECIST/mRECIST/iRECIST; đã có CT/EHR linkage; đã có quyền public; hoặc đã quyết định world-model paper.
+
+**Hệ quả:** giữ nhánh CT như một candidate chiến lược chính thức để đánh giá song song. Tài liệu làm việc: `research/CT_ONTOLOGY_SCOPE_SCALE_2026-09-08.md`. Khuyến nghị của trợ lý hiện là ontology kiểu `core + disease-specific profile` và ưu tiên single-disease/single-treatment trước pan-cancer, nhưng đây vẫn là đề xuất chưa được HMU xác nhận.
+
 ## Chưa có quyết định lựa chọn
 
-Chưa có bản ghi chấp thuận O1, O2, O3, O4A hoặc O4B; chưa chọn tĩnh/video, máy, cơ sở, cỡ mẫu, protocol hay benchmark cuối cùng. Các nhận định ưu tiên trong tài liệu nghiên cứu vẫn là đề xuất của trợ lý.
+Chưa có bản ghi chấp thuận O1, O2, O3, O4A/O4B hoặc một CT disease/treatment profile cụ thể; chưa chọn tĩnh/video, máy, cơ sở, cỡ mẫu, protocol hay benchmark cuối cùng. Các nhận định ưu tiên trong tài liệu nghiên cứu vẫn là đề xuất của trợ lý.
 
 ## Mẫu bản ghi tiếp theo
 
