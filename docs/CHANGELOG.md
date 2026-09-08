@@ -2,6 +2,22 @@
 
 Chỉ ghi thay đổi có ý nghĩa. Ngày theo `YYYY-MM-DD`; thời gian chi tiết và tác giả kỹ thuật truy vết bằng lịch sử commit. Changelog không thay thế nhật ký quyết định hoặc bằng chứng thực nghiệm.
 
+## 2026-09-08 — Khảo sát cross-modality cho VLA, world model và disease-state
+
+**Nguồn thay đổi:** người dùng hỏi liệu ngoài ultrasound có modality nào tiềm năng hơn trong bối cảnh VLA, medical world models và mô hình hóa state/progression của bệnh.
+
+**Nội dung mới/sửa:**
+
+- Thêm `docs/research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md` để phân biệt VLA, physical/procedural world model và clinical/disease-state world model.
+- Tổng hợp bằng chứng cập nhật 2025–2026: Medical World Model (ICCV 2025), X-WIN (CVPR 2026), MICCAI 2026 Medical World Model Workshop, SurgLaVi/Action Planning, US-VLA, Longitudinal-CT 2026, RETFound Plus 2026 và Time-Aware Multi-View MRI benchmark (preprint 2026).
+- Đề xuất shortlist ngoài ultrasound để kiểm tra với HMU: X1 longitudinal oncology CT + treatment; X2 longitudinal multi-sequence brain MRI; X3 longitudinal fundus/OCT; X4 surgical/endoscopic video + action/kinematics.
+- Ghi chiến lược: longitudinal CT/MRI có độ khớp cao hơn static ultrasound nếu mục tiêu là disease-state/world-model; surgical robotic video và ultrasound trajectories có độ khớp cao nhất với VLA/physical world model.
+- Cập nhật `SOURCE_OF_TRUTH.md` thêm U13 để theo dõi việc có đổi modality khỏi ultrasound hay không. **U13 chưa quyết định.** Việc khảo sát modality khác không rút quyết định ultrasound hiện tại.
+
+**Không thay đổi:** chưa chọn CT/MRI/retina/surgical video; chưa xác nhận HMU có các nguồn này; chưa thay đổi paper thành VLA/world-model paper; chưa thiết kế model hoặc cỡ mẫu.
+
+**Bước tiếp theo:** hỏi HMU về longitudinal patient-time-treatment linkage ngoài ultrasound và procedural video/action state; chỉ đổi modality nếu có một nguồn cụ thể vừa có feasibility vừa trả lời research question tốt hơn.
+
 ## 2026-09-08 — Mở rộng survey và thu hẹp shortlist khảo sát
 
 **Nguồn thay đổi:** khảo sát web cập nhật đến 08/09/2026 theo yêu cầu tiếp tục survey/gợi ý dataset nên làm; ưu tiên paper gốc, trang dataset và directory NIDUS.
