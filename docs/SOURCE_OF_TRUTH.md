@@ -1,22 +1,23 @@
 # Source of truth — Trạng thái dự án
 
-Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md). Bản survey ultrasound mới nhất: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md). Khảo sát chiến lược ngoài ultrasound: [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md).
+Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md). Bản survey ultrasound mới nhất: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md). Khảo sát chiến lược ngoài ultrasound: [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md). Nhánh CT ontology: [CT_ONTOLOGY_SCOPE_SCALE_2026-09-08](research/CT_ONTOLOGY_SCOPE_SCALE_2026-09-08.md).
 
 ## 1. Đã xác nhận
 
 | Nội dung | Trạng thái chính thức hiện tại |
 |---|---|
-| Dự án | Một paper dataset siêu âm y tế riêng |
+| Dự án gốc | Một paper dataset siêu âm y tế riêng |
 | Nền tảng của người dùng | AI/Computer Vision |
 | Cộng tác | Đang hợp tác với một số bạn bên Đại học Y Hà Nội; chưa xác nhận đối tác thu nhận lâm sàng cụ thể |
-| Modality hiện tại | Siêu âm |
+| Modality hiện tại của đề tài gốc | Siêu âm |
 | Mục tiêu | Tìm nhu cầu dữ liệu có ý nghĩa và khả thi; không chỉ tăng số ảnh |
-| Nhu cầu trước mắt | Đề xuất các lựa chọn cơ quan–task–dạng dữ liệu để đối chiếu với khả năng hợp tác phía Y; đồng thời người dùng đang **khảo sát chiến lược** xem longitudinal CT/MRI, retinal imaging hoặc procedural/surgical video có tiềm năng hơn cho VLA/world model/disease-state hay không. Đây chưa phải quyết định đổi modality. |
+| Nhu cầu trước mắt | Đề xuất các lựa chọn cơ quan–task–dạng dữ liệu để đối chiếu với khả năng hợp tác phía Y; đồng thời khảo sát longitudinal CT/MRI, retinal imaging hoặc procedural/surgical video cho VLA/world-model/disease-state. |
+| Nhánh CT mới | Người dùng muốn **khảo sát song song một longitudinal oncology CT ontology**, theo kiểu hồ sơ bệnh theo thời gian: imaging state + lesion labels/measurements + treatment/intervention + follow-up state + outcome/clinical assessment. Chưa chọn cancer/treatment/response profile/scale. |
 | Tài liệu mẫu | CariXray và DATE để tham khảo cách viết; `Thuyet minh De tai co so_ver2.docx` là mẫu thuyết minh dùng để nộp bên Đại học Y Hà Nội theo xác nhận của người dùng |
 | Repo chính thức | `https://github.com/QuocKhanhLuong/ultrasound-dataset` |
 | Quy tắc cập nhật | Chủ động đẩy thay đổi có ý nghĩa về source of truth và knowledge base thành docs vào repo trong các phiên làm việc |
 
-**Không diễn giải hàng “cộng tác” thành một quan hệ hợp tác cấp trường hoặc cam kết cung cấp dữ liệu. Không coi việc khảo sát modality khác là đã rút quyết định siêu âm.**
+**Không diễn giải hàng “cộng tác” thành một quan hệ hợp tác cấp trường hoặc cam kết cung cấp dữ liệu. Không coi nhánh CT mới là đã rút quyết định ultrasound hoặc đã xác nhận nguồn CT.**
 
 ## 2. Chưa xác nhận / chưa chốt
 
@@ -35,6 +36,7 @@ Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực ti�
 | U11 | Cỡ mẫu pilot và nghiên cứu chính thức, kinh phí, lịch thu | Chưa chốt; không lấy số frame làm cỡ mẫu bệnh nhân |
 | U12 | Nơi nộp và hạn nộp paper dataset này | Chưa chốt trong phạm vi dự án này |
 | U13 | Có đổi modality khỏi ultrasound để theo longitudinal CT/MRI/retina/procedural video hay không | **Chưa quyết định; mới là strategic survey** |
+| U14 | CT ontology sẽ chọn cancer nào, treatment family nào, RECIST/mRECIST/iRECIST profile nào, temporal depth và annotation depth nào | **Chưa chốt; đang survey scope/scale** |
 
 Chưa có cơ sở để ghi “đã có dataset”, “đa trung tâm”, “public dataset được phép phát hành”, “đã chạy benchmark” hoặc một cỡ mẫu thu nhận chính thức.
 
@@ -42,7 +44,7 @@ Chưa có cơ sở để ghi “đã có dataset”, “đa trung tâm”, “pu
 
 Khảo sát có dẫn nguồn; phân biệt ảnh/video, cơ quan, loại nhãn, metadata, nguồn thu nhận và truy cập. Phân tích độ rộng theo các trục độc lập. Chuẩn bị một số cấu hình để gặp phía Y; giữ điều kiện khả thi và gap ứng viên rõ ràng. Đề xuất pilot kiểm tra quy trình trước khi thu lớn.
 
-Chưa thiết kế model mới, chưa viết code cho pipeline/huấn luyện. Không ép ghép dataset ultrasound với world model, VLA hoặc forensic. Tuy nhiên, theo yêu cầu mới của người dùng, được phép **so sánh chiến lược** ultrasound với modality khác dựa trên mức phù hợp với longitudinal disease-state, VLA và medical world models; phải phân biệt rõ khảo sát với quyết định. Không đặt mục tiêu chia một dataset thành nhiều paper. Không lấy nội dung khoa học, cỡ mẫu, ngân sách hoặc nhân sự của mẫu Word làm thông tin của nghiên cứu mới.
+Chưa thiết kế model mới, chưa viết code cho pipeline/huấn luyện. Không ép dataset ultrasound với world model, VLA hoặc forensic. Theo yêu cầu mới của người dùng, được phép **so sánh chiến lược** ultrasound với modality khác và khảo sát một CT longitudinal oncology ontology dựa trên patient state, lesion state, treatment action, time và outcome; phải phân biệt rõ khảo sát với quyết định modality/paper. Không đặt mục tiêu chia một dataset thành nhiều paper. Không lấy nội dung khoa học, cỡ mẫu, ngân sách hoặc nhân sự của mẫu Word làm thông tin của nghiên cứu mới.
 
 ## 4. Các hướng ultrasound đang được đề xuất — chưa được người dùng/HMU chọn
 
@@ -57,24 +59,36 @@ Menu ban đầu O1–O4 vẫn được lưu tại [DATA_AND_TASK_OPTIONS](resear
 
 **Nhận định của trợ lý, không phải quyết định:** A có novelty upside tốt nếu quá trình quét thực sự được lưu; B có feasibility tốt nếu nguồn thực tế chủ yếu là ảnh tĩnh. C/D phụ thuộc mạnh vào đúng đối tác lâm sàng.
 
-Các hướng basic thyroid classification/detection/segmentation, breast lesion/multimodal, fetal standard-plane/biometry, liver classification, DVT compression video, DDH Graf và diaphragm thickness/excursion đã có comparator mạnh hơn trong 2025–2026. Điều này chỉ làm giảm ưu tiên của cấu hình cơ bản; không chứng minh các cơ quan đó không thể tạo một dataset tốt nếu HMU có cấu trúc dữ liệu hoặc nhu cầu khác biệt.
-
 Chi tiết bằng chứng/gap: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md) và [SOURCES](research/SOURCES.md).
 
-## 5. Khảo sát chiến lược ngoài ultrasound — chưa phải quyết định đổi modality
+## 5. Nhánh CT ontology — đang khảo sát scope/scale
 
-Tài liệu [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md) tách ba hướng đang hot:
+Tài liệu chính: [CT_ONTOLOGY_SCOPE_SCALE_2026-09-08](research/CT_ONTOLOGY_SCOPE_SCALE_2026-09-08.md); sổ nguồn riêng: [CT_ONTOLOGY_SOURCES_2026-09-08](research/CT_ONTOLOGY_SOURCES_2026-09-08.md).
+
+Khung hiện tại được đề xuất theo **core + disease-specific profile**:
+
+`Patient -> CancerEpisode -> Timepoint -> CT Study/Series -> Lesion/Measurement/Assessment`
+
+và transition:
+
+`State_t -- treatment/intervention, Δt --> State_t+1`.
+
+Core tham khảo mCODE/FHIR + DICOM/FHIR ImagingStudy + RadLex + DICOM SR TID1500; disease profile có thể là RECIST 1.1, mRECIST cho HCC/TACE hoặc iRECIST cho immunotherapy.
+
+**Khuyến nghị của trợ lý, chưa phải quyết định:** ưu tiên `single disease + single treatment family + longitudinal lesion graph + standardized response + outcome` trước pan-cancer. Candidate ưu tiên khảo sát: HCC/TACE, NSCLC/immunotherapy, HNSCC/radiotherapy. HCC/TACE có alignment world-model rất rõ nhưng đã có HCC-TACE-Seg và Medical World Model comparator; novelty phải sâu hơn pre/post CT.
+
+Không đặt cỡ mẫu chính thức. Với CT longitudinal phải theo dõi scale dạng `(N_patient, N_study, N_timepoint, N_transition, N_lesion, N_action_type, N_reader, N_site)`, không chỉ số ảnh.
+
+## 6. Khảo sát chiến lược ngoài ultrasound — chưa phải quyết định đổi modality
+
+Tài liệu [CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08](research/CROSS_MODALITY_WORLD_MODEL_VLA_2026-09-08.md) tách ba hướng:
 
 - **VLA/embodied:** tự nhiên nhất với robotic/endoscopic surgical video + action/kinematics và ultrasound scanning trajectories.
 - **Physical/procedural world model:** cần state + action + next-state của thủ thuật; surgical video/robotics và probe trajectories phù hợp hơn static imaging.
 - **Disease-state/clinical world model:** longitudinal oncology CT, multi-sequence MRI, PET/CT hoặc retinal imaging qua nhiều visit phù hợp hơn; giá trị tăng mạnh nếu có treatment/intervention semantics, lesion correspondence và outcomes.
 
-Các candidate ngoài ultrasound đáng kiểm tra với HMU gồm: X1 longitudinal oncology CT dưới treatment; X2 longitudinal multi-sequence brain MRI; X3 longitudinal fundus/OCT; X4 surgical/endoscopic video + action/kinematics. Chưa candidate nào được chọn.
+## 7. Bước tiếp theo
 
-## 6. Bước tiếp theo
+Dùng [phiếu trao đổi HMU](planning/HMU_ALIGNMENT.md) để xác nhận nguồn ultrasound và hỏi thêm về CT: cancer cohort nào giữ được **baseline + response-assessment CT + treatment dates/regimens/procedures + outcome** dưới cùng patient linkage; DICOM/contrast phase/report còn giữ được đến đâu; và clinical owner nào có thể định nghĩa response framework/annotation.
 
-Dùng [phiếu trao đổi HMU](planning/HMU_ALIGNMENT.md) và shortlist A–D để xác nhận: dạng dữ liệu thực tế (selected stills / multiple views / cine / full sweep), patient–exam linkage, calibration/metadata, clinical owner, reader time, reference standard và điều kiện trích xuất nghiên cứu.
-
-Đồng thời hỏi thêm xem ngoài ultrasound phía HMU có nguồn **longitudinal CT/MRI/retinal imaging có patient-time-treatment linkage** hoặc **procedural/surgical video có action/kinematics** hay không. Chỉ khi có nguồn khả thi mới cân nhắc thay đổi U13 và tạo decision record mới.
-
-Sau khi có phản hồi, cập nhật U01–U13 bằng người xác nhận, ngày và bằng chứng được phép chia sẻ. Chỉ khi biết 1–2 nguồn khả thi mới thực hiện systematic novelty check sâu cho đúng anatomy/task và thiết kế [pilot](planning/PILOT_QUALITY_GOVERNANCE.md). Chưa đặt cỡ mẫu nghiên cứu chính thức trước khi primary evaluation target được chốt.
+Chỉ khi có nguồn khả thi mới cân nhắc thay đổi U13 và chốt U14. Sau đó mới tính sample size theo primary evaluation target và thiết kế pilot; không chọn N chỉ từ số ảnh/lesion của các public comparator.
