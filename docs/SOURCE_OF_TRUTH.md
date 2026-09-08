@@ -1,6 +1,6 @@
 # Source of truth — Trạng thái dự án
 
-Cập nhật: **2026-09-07**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md).
+Cập nhật: **2026-09-08**. Nguồn xác nhận: các phát biểu trực tiếp của người dùng trong phiên khởi tạo dự án và chỉ định repo. Lịch sử: [DECISIONS](DECISIONS.md). Bản survey mới nhất: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md).
 
 ## 1. Đã xác nhận
 
@@ -43,22 +43,25 @@ Khảo sát có dẫn nguồn; phân biệt ảnh/video, cơ quan, loại nhãn,
 
 Chưa thiết kế model mới, chưa viết code cho pipeline/huấn luyện. Không ép ghép với world model, VLA hoặc forensic. Không đặt mục tiêu chia một dataset thành nhiều paper. Không lấy nội dung khoa học, cỡ mẫu, ngân sách hoặc nhân sự của mẫu Word làm thông tin của nghiên cứu mới.
 
-## 4. Các hướng đang được đề xuất, chưa được người dùng chọn
+## 4. Các hướng đang được đề xuất — chưa được người dùng/HMU chọn
 
-| Mã | Nhóm hướng | Lưu ý |
+Menu ban đầu O1–O4 vẫn được lưu tại [DATA_AND_TASK_OPTIONS](research/DATA_AND_TASK_OPTIONS.md). Sau survey cập nhật 08/09/2026, trợ lý đề xuất shortlist mới dưới đây để **khảo sát tính khớp nguồn dữ liệu**, không phải quyết định dự án:
+
+| Mã | Shortlist khảo sát mới | Điều kiện chính |
 |---|---|---|
-| O1 | Tổn thương khu trú: tuyến giáp **hoặc** vú | Chọn một phạm vi; không mặc định classification/segmentation cơ bản là tính mới |
-| O2 | Đo hình thái thận | Cần một phép đo có nhu cầu và dữ liệu hiệu chuẩn phù hợp |
-| O3 | Mặt cắt đủ điều kiện và đo lường sản khoa | Có nhánh ảnh tĩnh và nhánh video; chưa yêu cầu phải có video |
-| O4A | Thông số chức năng tim từ video | Cần video và phương pháp đo tham chiếu |
-| O4B | Dấu hiệu phổi theo clip/vùng quét | Là lựa chọn thay thế O4A, không phải dataset tim–phổi hỗn hợp |
+| A | Full-exam / acquisition-quality / completeness cho một protocol abdominal ultrasound hoặc POCUS cụ thể | Cần full/near-full cine, sweep hoặc sequence đủ đại diện quá trình thu nhận; selected stills đơn thuần không đủ cho claim acquisition |
+| B | Kidney multi-view biometry + repeatability / label reliability | Phù hợp hơn nếu chủ yếu có ảnh tĩnh/DICOM nhưng giữ multiple views, patient–exam linkage và calibration |
+| C | Adnexal mass exam-level: multi-view + feature/O-RADS + independent readers + pathology/reference | Cần đối tác phụ khoa/chẩn đoán hình ảnh và khả năng liên kết reference standard phù hợp |
+| D | Procedural cine cho ultrasound-guided regional anesthesia | Cần video thủ thuật và đối tác gây mê; đã có public brachial-plexus video nên novelty phải sâu hơn “có video” |
 
-Chi tiết: [DATA_AND_TASK_OPTIONS](research/DATA_AND_TASK_OPTIONS.md). Bất đồng chuyên gia, nhiều thiết bị/cơ sở và đánh giá ngoài là trục có thể bổ sung, không tự động trở thành những paper riêng.
+**Nhận định của trợ lý, không phải quyết định:** A có novelty upside tốt nếu quá trình quét thực sự được lưu; B có feasibility tốt nếu nguồn thực tế chủ yếu là ảnh tĩnh. C/D phụ thuộc mạnh vào đúng đối tác lâm sàng.
 
-Nhận định ưu tiên khảo sát O2/O3 từng được trợ lý đề xuất chỉ là **khuyến nghị có điều kiện**, không phải quyết định chọn cơ quan hay kết luận chúng khả thi hơn khi chưa biết nguồn.
+Các hướng basic thyroid classification/detection/segmentation, breast lesion/multimodal, fetal standard-plane/biometry, liver classification, DVT compression video, DDH Graf và diaphragm thickness/excursion đã có comparator mạnh hơn trong 2025–2026. Điều này chỉ làm giảm ưu tiên của cấu hình cơ bản; không chứng minh các cơ quan đó không thể tạo một dataset tốt nếu HMU có cấu trúc dữ liệu hoặc nhu cầu khác biệt.
+
+Chi tiết bằng chứng/gap: [SURVEY_2026-09-08](research/SURVEY_2026-09-08.md) và [SOURCES](research/SOURCES.md).
 
 ## 5. Bước tiếp theo
 
-Dùng [phiếu trao đổi HMU](planning/HMU_ALIGNMENT.md) để xác nhận nhu cầu, nguồn thực tế, chuyên gia và quyền sử dụng. Có thể thu hẹp còn hai hướng để kiểm tra sâu nếu buổi trao đổi cung cấp đủ thông tin; đây là mục tiêu làm việc đề xuất, chưa phải cam kết của phía Y.
+Dùng [phiếu trao đổi HMU](planning/HMU_ALIGNMENT.md) và shortlist A–D để xác nhận: dạng dữ liệu thực tế (selected stills / multiple views / cine / full sweep), patient–exam linkage, calibration/metadata, clinical owner, reader time, reference standard và điều kiện trích xuất nghiên cứu.
 
-Sau xác nhận, cập nhật U01–U12 bằng người xác nhận, ngày và bằng chứng được phép chia sẻ. Chỉ triển khai [pilot](planning/PILOT_QUALITY_GOVERNANCE.md) khi điều kiện tiếp cận và phê duyệt tương ứng đã rõ.
+Sau khi có phản hồi, cập nhật U01–U12 bằng người xác nhận, ngày và bằng chứng được phép chia sẻ. Chỉ khi biết 1–2 nguồn khả thi mới thực hiện systematic novelty check sâu cho đúng anatomy/task và thiết kế [pilot](planning/PILOT_QUALITY_GOVERNANCE.md). Chưa đặt cỡ mẫu nghiên cứu chính thức trước khi primary evaluation target được chốt.
