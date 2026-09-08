@@ -2,6 +2,24 @@
 
 Chỉ ghi thay đổi có ý nghĩa. Ngày theo `YYYY-MM-DD`; thời gian chi tiết và tác giả kỹ thuật truy vết bằng lịch sử commit. Changelog không thay thế nhật ký quyết định hoặc bằng chứng thực nghiệm.
 
+## 2026-09-08 — Thêm nhánh CT longitudinal oncology ontology và survey scope/scale
+
+**Nguồn thay đổi:** người dùng xác nhận muốn khảo sát thêm một bộ CT ontology theo hồ sơ bệnh theo thời gian và hỏi cách chọn scale/scope.
+
+**Nội dung mới/sửa:**
+
+- Thêm `docs/research/CT_ONTOLOGY_SCOPE_SCALE_2026-09-08.md` để tách rõ scope (disease/treatment/temporal/anatomy/annotation/clinical breadth) khỏi scale `(N_patient, N_study, N_timepoint, N_transition, N_lesion, N_action_type, N_reader, N_site)`.
+- Đề xuất ontology kiểu `core + disease-specific profile`: mCODE/FHIR + DICOM/FHIR ImagingStudy + RadLex + DICOM SR TID1500 ở core; RECIST 1.1/mRECIST/iRECIST làm response profile theo bệnh/treatment.
+- Survey comparator CT longitudinal: Longitudinal-CT 2026, HCC-TACE-Seg, RECIST CT dataset 2026, Anti-PD-1 Lung, HNSCC-3DCT-RT và Medical World Model ICCV 2025.
+- Đề xuất ưu tiên khảo sát single disease + single treatment family trước pan-solid. Candidate có điều kiện: HCC/TACE, NSCLC/immunotherapy, HNSCC/radiotherapy. Đây chưa phải lựa chọn của HMU/người dùng.
+- Thêm `docs/research/CT_ONTOLOGY_SOURCES_2026-09-08.md` làm source register riêng cho nhánh CT trước khi quyết định hợp nhất vào sổ nguồn ultrasound.
+- Cập nhật `DECISIONS.md` với D005: khảo sát song song CT longitudinal oncology ontology; không ghi là đã bỏ ultrasound.
+- Cập nhật `SOURCE_OF_TRUTH.md` thêm U14 theo dõi cancer/treatment/response profile/temporal depth/annotation depth của CT ontology.
+
+**Không thay đổi:** chưa chọn HCC/NSCLC/HNSCC; chưa xác nhận nguồn CT/PACS/EHR ở HMU; chưa chọn RECIST profile chính; chưa đặt sample size; chưa biến paper thành world-model paper hoặc claim causal treatment effect.
+
+**Bước tiếp theo:** hỏi HMU cohort nào giữ được baseline + response-assessment CT + treatment timeline + outcome dưới cùng patient linkage, rồi mới chốt disease/treatment scope và tính scale dựa trên primary evaluation target.
+
 ## 2026-09-08 — Khảo sát cross-modality cho VLA, world model và disease-state
 
 **Nguồn thay đổi:** người dùng hỏi liệu ngoài ultrasound có modality nào tiềm năng hơn trong bối cảnh VLA, medical world models và mô hình hóa state/progression của bệnh.
